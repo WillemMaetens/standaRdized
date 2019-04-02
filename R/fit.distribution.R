@@ -36,10 +36,14 @@
 #' # fit gamma distribution to the data
 #' fit <- fit.distribution(data=data,distr='gamma',method='mle')
 #' fitplot(x=fit,main='June precipitation',xlab='precipitation (mm)')
+#' # fit gev distribution to the data
+#' fit <- fit.distribution(data=data,distr='gev',method='mle')
+#' fitplot(x=fit,main='June precipitation',xlab='precipitation (mm)')
+#' # fit glogis distribution to the data
+#' fit <- fit.distribution(data=data,distr='glogis',method='mle')
+#' fitplot(x=fit,main='June precipitation',xlab='precipitation (mm)')
 #' 
 #' @importFrom stats dgamma pgamma qgamma dweibull pweibull qweibull ks.test
-#' @importFrom FAdist dgamma3 pgamma3 qgamma3 dweibull3 pweibull3 qweibull3 dgev pgev qgev
-#' @importFrom glogis dglogis pglogis qglogis
 #' @importFrom fitdistrplus fitdist
 #' @importFrom lmomco pwm.ub pwm2lmom are.lmom.valid pargam parpe3 parwei parwei pargev parglo
 #' @importFrom goftest ad.test

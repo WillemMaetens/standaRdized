@@ -27,8 +27,6 @@
 #' fitplot(x=fit,main='June precipitation',xlab='precipitation (mm)')
 #' 
 #' @importFrom stats rgamma rweibull ecdf
-#' @importFrom FAdist rgamma3 rweibull3 rgev
-#' @importFrom glogis rglogis
 #' @importFrom grDevices png dev.off
 #' @importFrom graphics box grid legend lines mtext par plot title 
 #' @export fitplot

@@ -45,6 +45,12 @@ data <- c(coredata(monthly.precipitation[format(index(monthly.precipitation),'\%
 # fit gamma distribution to the data
 fit <- fit.distribution(data=data,distr='gamma',method='mle')
 fitplot(x=fit,main='June precipitation',xlab='precipitation (mm)')
+# fit gev distribution to the data
+fit <- fit.distribution(data=data,distr='gev',method='mle')
+fitplot(x=fit,main='June precipitation',xlab='precipitation (mm)')
+# fit glogis distribution to the data
+fit <- fit.distribution(data=data,distr='glogis',method='mle')
+fitplot(x=fit,main='June precipitation',xlab='precipitation (mm)')
 
 }
 \seealso{
