@@ -1,0 +1,13 @@
+Package: standaRdized
+Type: Package
+Title: Standardized Index Calculation
+Version: 1.0
+Date: 2019-04-02
+Author: Willem Maetens
+Maintainer: Willem Maetens <w.maetens@vmm.be>
+Depends: xts
+Imports: stats, FAdist, glogis, fitdistrplus, lmomco, goftest
+Suggests: grDevices, graphics
+Description: This package provides functions and methods for the calculation of Standardized Indices such as the Standardized Precipitation Index (SPI), Standardized Precipitation Evapotranspiration Index (SPEI) or Standardized Streamflow Index (SSI).
+License: MIT + file LICENSE
+RoxygenNote: 6.1.1
