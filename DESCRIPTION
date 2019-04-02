@@ -8,6 +8,6 @@ Maintainer: Willem Maetens <w.maetens@vmm.be>
 Depends: xts, FAdist, glogis
 Imports: stats, fitdistrplus, lmomco, goftest
 Suggests: grDevices, graphics
-Description: This package provides functions and methods for the calculation of daily Standardized Index values such as the Standardized Precipitation Index (SPI), Standardized Precipitation Evapotranspiration Index (SPEI) or Standardized Streamflow Index (SSI)).
+Description: This package provides functions for the calculation of daily Standardized Index values such as the Standardized Precipitation Index (SPI), Standardized Precipitation Evapotranspiration Index (SPEI) or Standardized Streamflow Index (SSI)).
 License: MIT + file LICENSE
 RoxygenNote: 6.1.1
