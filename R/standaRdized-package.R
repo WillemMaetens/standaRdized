@@ -4,7 +4,7 @@
 #' @rdname standaRdized-package
 #' @title Standardized Index Calculation
 #' @description Functions and methods for the calculation of Standardized Indices
-#' @details This package provides functions and methods for the calculation of Standardized Indices such as the Standardized Precipitation Index (SPI), Standardized Precipitation Evapotranspiration Index (SPEI) or Standardized Streamflow Index (SSI).
+#' @details This package provides functions and methods for the calculation of daily Standardized Index values such as the Standardized Precipitation Index (SPI), Standardized Precipitation Evapotranspiration Index (SPEI) or Standardized Streamflow Index (SSI)).
 #' @author Willem Maetens
 #' 
 #' Maintainer: Willem Maetens <w.maetens@vmm.be> 
