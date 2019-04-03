@@ -18,7 +18,7 @@
 #' preceding, but not including, the date for which the reference values are being determined. Warnings will be generated when the requested reference period falls
 #' outside ref.data, or when expected aggregation period dates are not present in ref.data.
 #' @return A named vector with reference period data.
-#' @seealso \code{\link{standardized.index}}, code{\link{fit.distribution}}
+#' @seealso \code{\link{standardized.index}}, \code{\link{fit.distribution}}
 #'
 #' @examples
 #' data(Ukkel_RR)
