@@ -1,13 +1,15 @@
 # standaRdized
 
-standaRdized is an R package for the calculation of Standardized Index values (SPI, SPEI, SSI,...) on a daily basis. The Standardized Precipitation Index (SPI) was developed by McKee et al (1993) as a monthly indicator for meteorological drought, and has since become one of the most widely used drought indicators. The procedure has also been applied to time series of precipitation balance (Standardized Precipitation Evapotranspiration Index, SPEI), or streamflow (Standardized Streamflow Index, SSI).
+standaRdized is an R package for the calculation of Standardized Index values (SPI, SPEI, SSI,...) on a daily basis. The Standardized Precipitation Index (SPI) was developed by [McKee et al (1993)](https://climate.colostate.edu/pdfs/relationshipofdroughtfrequency.pdf)\[1] as a monthly indicator for meteorological drought, and has since become one of the most widely used drought indicators. The procedure has also been applied to time series of precipitation balance (Standardized Precipitation Evapotranspiration Index, SPEI), or streamflow (Standardized Streamflow Index, SSI).
 
 This package provides functions to calculate Standardized Index values on a daily basis in a generalized way: it allows the use of several distributions, aggregation periods, reference periods, and aggregation functions. This allows the calculation of Standardized Index values for a wide range of environmental data (e.g. groundwater levels, temperature,…).
 
+<!--
 Further details:
     • Standardized Index calculation
     • Function help
     • Applications
+-->
 
 ## Installation
 
@@ -62,3 +64,18 @@ fprint(Ukkel_RR)
 #> 2019-02-27     0
 #> 2019-02-28    11
 ```
+Calculating Standardized Indexes on a daily basis requires that monthly totals as in the original definition by Mk
+Standardized Index values are calculated by the function `standardized.index()`.
+
+```r
+dates <- seq(from=as.Date('2011-07-01'),to=as.Date('2011-07-31'),by=1)
+```
+
+```r
+SPI_1 <- standardized.index(data=Ukkel_RR,agg.length=30,index.out=seq(from=as.Date(2011-07-01),to=as.Date(2011-07-31),by=1))
+fprint(SPI_1)
+```
+
+## References
+
+\[1] McKee, T.B., Doesken, N.J. and Kleist, J., 1993, January. The relationship of drought frequency and duration to time scales. In Proceedings of the 8th Conference on Applied Climatology (Vol. 17, No. 22, pp. 179-183). Boston, MA: American Meteorological Society.
