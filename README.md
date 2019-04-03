@@ -1,15 +1,13 @@
 # standaRdized
 
-standaRdized is an R package for the calculation of Standardized Index values (SPI, SPEI, SSI,...) on a daily basis. The Standardized Precipitation Index (SPI) was developed by [McKee et al (1993)](https://climate.colostate.edu/pdfs/relationshipofdroughtfrequency.pdf) \[1] as a monthly indicator for meteorological drought, and has since become one of the most widely used drought indicators. The procedure has also been applied to time series of precipitation balance (Standardized Precipitation Evapotranspiration Index, SPEI), or streamflow (Standardized Streamflow Index, SSI).
+standaRdized is an R package for the calculation of Standardized Index values (SPI, SPEI, SSI,...) on a daily basis. The Standardized Precipitation Index (SPI) was developed by [McKee et al (1993)](https://climate.colostate.edu/pdfs/relationshipofdroughtfrequency.pdf) \[1] as a monthly indicator for meteorological drought, and has since become one of the most widely used drought indicators. The procedure has also been applied to time series of precipitation-evaporation balance (Standardized Precipitation Evapotranspiration Index, SPEI), or streamflow (Standardized Streamflow Index, SSI).
 
 This package provides functions to calculate Standardized Index values on a daily basis in a generalized way: it allows the use of several distributions, aggregation periods, reference periods, and aggregation functions. This allows the calculation of Standardized Index values for a wide range of environmental data (e.g. groundwater levels, temperature,…).
 
-<!--
 Further details:
     • Standardized Index calculation
     • Function help
     • Applications
--->
 
 ## Installation
 
@@ -22,7 +20,7 @@ devtools::install_github("WillemMaetens/standaRdized")
 
 ## Getting started
 
-standaRdized uses [xts (eXtensible Time Series)](https://cran.r-project.org/web/packages/xts/index.html) as input and output objects. Some tutorials for constructing xts objects for data input or working with the standardized  index output can be found [here](https://www.datacamp.com/community/blog/r-xts-cheat-sheet?utm_source=adwords_ppc&utm_campaignid=898687156&utm_adgroupid=48947256715&utm_device=c&utm_keyword=&utm_matchtype=b&utm_network=g&utm_adpostion=1t1&utm_creative=332602034349&utm_targetid=dsa-473406570475&utm_loc_interest_ms=&utm_loc_physical_ms=9040077&gclid=EAIaIQobChMI29a18uCz4QIV2OFRCh1ZxwefEAAYASAAEgLsgfD_BwE) or [here](http://rstudio-pubs-static.s3.amazonaws.com/288218_117e183e74964557a5da4fc5902fc671.html).
+standaRdized uses [xts (eXtensible Time Series)](https://cran.r-project.org/web/packages/xts/index.html) as input and output objects. Some tutorials for constructing xts objects for data input or working with the Standardized Index output can be found [here](https://www.datacamp.com/community/blog/r-xts-cheat-sheet?utm_source=adwords_ppc&utm_campaignid=898687156&utm_adgroupid=48947256715&utm_device=c&utm_keyword=&utm_matchtype=b&utm_network=g&utm_adpostion=1t1&utm_creative=332602034349&utm_targetid=dsa-473406570475&utm_loc_interest_ms=&utm_loc_physical_ms=9040077&gclid=EAIaIQobChMI29a18uCz4QIV2OFRCh1ZxwefEAAYASAAEgLsgfD_BwE) or [here](http://rstudio-pubs-static.s3.amazonaws.com/288218_117e183e74964557a5da4fc5902fc671.html).
 
 Load the package with:
 
@@ -138,9 +136,75 @@ plot(SPI_3)
 
 <img src="man/figures/README-SPI_3.png" title="SPI-3 for June 2018 at Ukkel" alt="SPI-3 for June 2018 at Ukkel"/>
 
-ref_period
+By default, `standardized.index` uses the entire `data` object provided as reference data to determine the reference data on which a distribution is fitted. However, it is possible to provide a seperate `ref.data` xts that will be used to determine the reference data. This allows the calculation of Standardized Index values for time series of limited length by using another, longer, time series from a nearby station as reference data. This is how the SPI values published by the [Flanders Evironment Agency](https://en.vmm.be/) at [waterinfo.be](https://www.waterinfo.be/default.aspx?path=NL/Thema/Droogte_Actueel&KL=en) is calculated: the SPI-1 and SPI-3 for 43 raingauges with data from 2004 onwards are calculated by using the long term daily rainfall record at [RMI](https://www.meteo.be/en)'s Ukkel station as reference data.
 
-For more information...
+Furthermore, the `ref.years` and `ref.length` arguments allow to set which period of data to use as reference period. By default (`ref.years = NULL`), the full dataset length of `ref.data` is used, but you can provide specific years to be used as reference period. For instance, the [European Drought Observatory](http://edo.jrc.ec.europa.eu) uses the years [1981-2010 as reference period](http://edo.jrc.ec.europa.eu/documents/factsheets/factsheet_spi_ado.pdf):
+
+```r
+SPI_1 <- standardized.index(data=Ukkel_RR,agg.length=30,index.out=dates,ref.years=seq(1981,2010))
+fprint(SPI_1)
+#> Attributes:                                                                                   
+#> agg.length        :  30                                                            
+#> agg.fun           :  sum                                                           
+#> distr             :  gamma                                                         
+#> method            :  mle                                                           
+#> ref.years         :  1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988,... [truncated]
+#> ref.length        :  30                                                            
+#> ref.na.thres      :  10                                                            
+#> agg.na.thres      :  10                                                            
+#> agg.interpolation :  none                                                          
+#> 
+#> Data:
+#>            value
+#> 2018-06-01 -2.10
+#> 2018-06-02 -2.15
+#> 2018-06-03 -2.45
+#> 2018-06-04 -2.58
+#> 2018-06-05 -2.53
+#> ...                
+#> 2018-06-26 -2.22
+#> 2018-06-27 -2.15
+#> 2018-06-28 -2.11
+#> 2018-06-29 -2.16
+#> 2018-06-30 -2.20
+```
+
+Alternatively, in stead of a set reference period, a set number of years preceding the date for which the Standardized Index is calculated can be used by setting `ref.years = NA` and specifying `ref.length` as a set number of years (by default, this is `30`). This is the setting used by VMM to calculate the SPI values shown on [waterinfo.be](https://www.waterinfo.be/default.aspx?path=NL/Thema/Droogte_Actueel&KL=en).
+
+```r
+SPI_1 <- standardized.index(data=Ukkel_RR,agg.length=30,index.out=dates,ref.years=NA,ref.length=30)
+fprint(SPI_1)
+#> Attributes:                          
+#> agg.length        :  30   
+#> agg.fun           :  sum  
+#> distr             :  gamma
+#> method            :  mle  
+#> ref.years         :  NA   
+#> ref.length        :  30   
+#> ref.na.thres      :  10   
+#> agg.na.thres      :  10   
+#> agg.interpolation :  none 
+#> 
+#> Data:
+#>            value
+#> 2018-06-01 -1.89
+#> 2018-06-02 -1.84
+#> 2018-06-03 -2.06
+#> 2018-06-04 -2.16
+#> 2018-06-05 -2.21
+#> ...                
+#> 2018-06-26    NA
+#> 2018-06-27    NA
+#> 2018-06-28    NA
+#> 2018-06-29    NA
+#> 2018-06-30    NA
+```
+
+Note how this introduces NA values in the output as data for more recent years in the Ukkel_RR series has not yet been consolidated and the function's dafault tolerance for 10% missing data in the aggregation period or reference period is exceeded.  
+
+For more information on the calculation procedure for Standardized Index values, see: Standardized Index calculation.
+For more information on the package's functions, see: Function help.
+For more examples and use cases for working with other types of data such as the precipitation-evaporation balance (SPEI) or streamflow (SSI), handling NA values, different distributions and fitting methods, and optimizing calculation, see: Applications.
 
 ## References
 
