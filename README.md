@@ -100,10 +100,10 @@ fprint(SPI_1)
 #> 2018-06-28 -2.13
 #> 2018-06-29 -2.17
 #> 2018-06-30 -2.20
-#> plot(SPI_1)
+plot(SPI_1)
 ```
 
-<img src="man/figures/README-SPI_1.png" title="SPI-1 for June 2018 at Ukkel" alt="SPI-1 for June 2018 at Ukkel" width="80%" />
+<img src="man/figures/README-SPI_1.png" title="SPI-1 for June 2018 at Ukkel" alt="SPI-1 for June 2018 at Ukkel"/>
 
 To calculate the SPI-3 (which has an `agg.length` of `90` days), just modify the `agg.length` argument:
 
@@ -136,7 +136,7 @@ fprint(SPI_3)
 plot(SPI_3)
 ```
 
-<img src="man/figures/README-SPI_3.png" title="SPI-3 for June 2018 at Ukkel" alt="SPI-3 for June 2018 at Ukkel" width="80%" />
+<img src="man/figures/README-SPI_3.png" title="SPI-3 for June 2018 at Ukkel" alt="SPI-3 for June 2018 at Ukkel"/>
 
 ref_period
 
