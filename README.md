@@ -202,9 +202,9 @@ fprint(SPI_1)
 
 Note how this introduces NA values in the output as data for more recent years in the Ukkel_RR series has not yet been consolidated and the function's dafault tolerance for 10% missing data in the aggregation period or reference period is exceeded.  
 
-For more information on the calculation procedure for Standardized Index values, see: [Standardized Index calculation](https://github.com/WillemMaetens/standaRdized/tree/master/docs/calculation/calculation.md).
+For more information on the calculation procedure for Standardized Index values, see: [Standardized Index calculation](docs/calculation/calculation.md).
 
-For more information on the package's functions, see: [function help](https://github.com/WillemMaetens/standaRdized/tree/master/docs/standaRdized.pdf).
+For more information on the package's functions, see: [function help](docs/standaRdized.pdf).
 
 <!---For more use cases for working with other types of data such as the precipitation-evaporation balance (SPEI) or streamflow (SSI), handling NA values, different distributions and fitting methods, and optimizing calculation, see: Applications.--->
 
