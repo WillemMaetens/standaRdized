@@ -1,6 +1,6 @@
 # standaRdized
 
-standaRdized is an R package for the calculation of Standardized Index values (SPI, SPEI, SSI,...) on a daily basis. The Standardized Precipitation Index (SPI) was developed by [McKee et al (1993)](https://climate.colostate.edu/pdfs/relationshipofdroughtfrequency.pdf)\[1] as a monthly indicator for meteorological drought, and has since become one of the most widely used drought indicators. The procedure has also been applied to time series of precipitation balance (Standardized Precipitation Evapotranspiration Index, SPEI), or streamflow (Standardized Streamflow Index, SSI).
+standaRdized is an R package for the calculation of Standardized Index values (SPI, SPEI, SSI,...) on a daily basis. The Standardized Precipitation Index (SPI) was developed by [McKee et al (1993)](https://climate.colostate.edu/pdfs/relationshipofdroughtfrequency.pdf) \[1] as a monthly indicator for meteorological drought, and has since become one of the most widely used drought indicators. The procedure has also been applied to time series of precipitation balance (Standardized Precipitation Evapotranspiration Index, SPEI), or streamflow (Standardized Streamflow Index, SSI).
 
 This package provides functions to calculate Standardized Index values on a daily basis in a generalized way: it allows the use of several distributions, aggregation periods, reference periods, and aggregation functions. This allows the calculation of Standardized Index values for a wide range of environmental data (e.g. groundwater levels, temperature,…).
 
@@ -64,17 +64,83 @@ fprint(Ukkel_RR)
 #> 2019-02-27     0
 #> 2019-02-28    11
 ```
-Calculating Standardized Indexes on a daily basis requires that monthly totals as in the original definition by Mk
-Standardized Index values are calculated by the function `standardized.index()`.
+
+Calculating Standardized Indexes on a daily basis requires that monthly total precipiation as the basis for SPI calculation as in the original definition is replaced by the total rainfall over a specific number of days (the aggregation period). Although it is possible to do this for any number of days, the traditional definition of SPI-1 (based on total precipitation for 1 month), SPI-3 (based on total precipitation for 3 months) is approximated by using a fixed period of 30 days for a month. Hence, SPI-1 represents total precipitation over 30 days, SPI-3 total precipitation over 90 days, etc.
+
+Standardized Index values are calculated by the function `standardized.index()`. Minimum required arguments for this function are `data`: an `xts` object with the input time series (e.g. `Ukkel_RR`), `agg.length`: the length of the aggregation period in days and `index.out`: the output dates for which to calculate the SPI:
 
 ```r
-dates <- seq(from=as.Date('2011-07-01'),to=as.Date('2011-07-31'),by=1)
+dates <- seq(from=as.Date('2018-06-01'),to=as.Date('2018-06-30'),by=1)
 ```
+By default, `standardized.index` uses the `gamma` distribution and aggregates data using the `sum` function as these are traditional for the SPI. Hence, the SPI-1 (which has an `agg.length` of `30` days) for June 2018 is calculated as follows:
 
 ```r
-SPI_1 <- standardized.index(data=Ukkel_RR,agg.length=30,index.out=seq(from=as.Date(2011-07-01),to=as.Date(2011-07-31),by=1))
+SPI_1 <- standardized.index(data=Ukkel_RR,agg.length=30,index.out=dates)
 fprint(SPI_1)
+#> Attributes:                          
+#> agg.length        :  30   
+#> agg.fun           :  sum  
+#> distr             :  gamma
+#> method            :  mle  
+#> ref.length        :  30   
+#> ref.na.thres      :  10   
+#> agg.na.thres      :  10   
+#> agg.interpolation :  none 
+#> 
+#> Data:
+#>            value
+#> 2018-06-01 -1.45
+#> 2018-06-02 -1.50
+#> 2018-06-03 -1.56
+#> 2018-06-04 -1.62
+#> 2018-06-05 -1.67
+#> ...                
+#> 2018-06-26 -2.18
+#> 2018-06-27 -2.15
+#> 2018-06-28 -2.13
+#> 2018-06-29 -2.17
+#> 2018-06-30 -2.20
+#> plot(SPI_1)
 ```
+
+<img src="man/figures/README-SPI_1.png" title="SPI-1 for June 2018 at Ukkel" alt="SPI-1 for June 2018 at Ukkel" width="80%" />
+
+To calculate the SPI-3 (which has an `agg.length` of `90` days), just modify the `agg.length` argument:
+
+```r
+SPI_3 <- standardized.index(data=Ukkel_RR,agg.length=90,index.out=dates)
+fprint(SPI_3)
+#> Attributes:                          
+#> agg.length        :  90   
+#> agg.fun           :  sum  
+#> distr             :  gamma
+#> method            :  mle  
+#> ref.length        :  30   
+#> ref.na.thres      :  10   
+#> agg.na.thres      :  10   
+#> agg.interpolation :  none 
+#> 
+#> Data:
+#>            value
+#> 2018-06-01 -0.05
+#> 2018-06-02 -0.13
+#> 2018-06-03 -0.14
+#> 2018-06-04 -0.16
+#> 2018-06-05 -0.22
+#> ...                
+#> 2018-06-26 -1.39
+#> 2018-06-27 -1.38
+#> 2018-06-28 -1.48
+#> 2018-06-29 -1.68
+#> 2018-06-30 -1.72
+plot(SPI_3)
+```
+
+<img src="man/figures/README-SPI_3.png" title="SPI-3 for June 2018 at Ukkel" alt="SPI-3 for June 2018 at Ukkel" width="80%" />
+
+ref_period
+
+For more information...
 
 ## References
 
