@@ -200,7 +200,7 @@ fprint(SPI_1)
 #> 2018-06-30    NA
 ```
 
-Note how this introduces NA values in the output as data for more recent years in the Ukkel_RR series has not yet been consolidated and the function's dafault tolerance for 10% missing data in the aggregation period or reference period is exceeded.  
+Note how this introduces NA values in the output as data for more recent years in the Ukkel_RR series has not yet been consolidated and the function's default tolerance for 10% missing data in the aggregation period or reference period is exceeded.  
 
 For more information on the calculation procedure for Standardized Index values, see: [Standardized Index calculation](docs/calculation/calculation.md).
 
