@@ -34,7 +34,7 @@ The package includes example daily rainfall data for the Ukkel station in Belgiu
 data("Ukkel_RR")
 ```
 
-The function fprint() can be used to print xts objects or lists of xts objects in a formatted manner. It prints the xtsAttributes where the metadata for time series are stored, and the head and tail of xts objects.
+The function `fprint()` can be used to print xts objects or lists of xts objects in a formatted manner. It prints the `xtsAttributes` where the metadata for time series are stored, and the `head` and `tail` of xts time series.
 
 ```r
 fprint(Ukkel_RR)
