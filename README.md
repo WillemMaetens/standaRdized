@@ -5,7 +5,7 @@ standaRdized is an R package for the calculation of Standardized Index values (S
 This package provides functions to calculate Standardized Index values on a daily basis in a generalized way: it allows the use of several distributions, aggregation periods, reference periods, and aggregation functions. This allows the calculation of Standardized Index values for a wide range of environmental data (e.g. groundwater levels, temperature,…).
 
 Further details:
-* [Standardized Index calculation](https://github.com/WillemMaetens/standaRdized/tree/master/standaRdized/docs/calculation/calculation.md)
+* [Standardized Index calculation](https://github.com/WillemMaetens/standaRdized/tree/master/docs/calculation/calculation.md)
 * [function help](https://github.com/WillemMaetens/standaRdized/tree/master/docs/standaRdized.pdf)
 <!---* applications--->
 
@@ -202,7 +202,7 @@ fprint(SPI_1)
 
 Note how this introduces NA values in the output as data for more recent years in the Ukkel_RR series has not yet been consolidated and the function's dafault tolerance for 10% missing data in the aggregation period or reference period is exceeded.  
 
-For more information on the calculation procedure for Standardized Index values, see: [Standardized Index calculation](https://github.com/WillemMaetens/standaRdized/tree/master/standaRdized/docs/calculation/calculation.md).
+For more information on the calculation procedure for Standardized Index values, see: [Standardized Index calculation](https://github.com/WillemMaetens/standaRdized/tree/master/docs/calculation/calculation.md).
 
 For more information on the package's functions, see: [function help](https://github.com/WillemMaetens/standaRdized/tree/master/docs/standaRdized.pdf).
 
