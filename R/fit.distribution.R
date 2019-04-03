@@ -18,9 +18,10 @@
 #' @return a named vector containing:
 #' \itemize{
 #' \item{fitted distribution parameters, parameters are distribution-specific}
-#' \item{prob.zero}{empirical probability of zeros in data, used in SI calculation with with distributions not including zero such as gamma and Weibull}
-#' \item{n.obs}{the total number of observations in data (including NA values)}
-#' \item{n.na}{the number of NA values in data}
+#' \item{prob.zero}{empirical probability of zeros in the data, used in SI calculation with with distributions not including zero such as gamma and Weibull}
+#' \item{n.obs}{the total number of observations in the data (including NA values)}
+#' \item{n.na}{the number of NA values in the data}
+#' \item{pct.na}{the percentage of NA values in the data}
 #' \item{ks.pval}{p-value for a two-sided Kolmogorov-Smirnov test that data comes form the fitted distribution}
 #' \item{ad.pval}{p-value for a two-sided Anderson-Darling test that data comes form the fitted distribution}
 #' The data (without NA values) and distr, method and na.thres settings are added to the result as addditional attributes.

@@ -4,7 +4,6 @@
 #'
 #' @param x an xts object to be printed
 #' @param nlines approximate number of object rows to print (divided over head and tail of object) with a minimum of 4, if negative, the entire object is printed
-#' @param \dots additional attributes to be added
 #'
 #' @seealso \code{\link{xts}}
 #'
@@ -16,19 +15,18 @@
 #' @importFrom utils capture.output str
 #' @export
 
-fprint <- function(x, nlines = 10, ...) {
+fprint <- function(x, nlines = 10) {
   # function to traverse a list emulating list printing behaviour
   listcrawler <- function(iter = NULL,
                           x,
                           name = '',
-                          nlines = nlines,
-                          ...) {
+                          nlines = nlines) {
     if (is.null(iter)) {
       iter <- ''
     }
     if (inherits(x, 'xts')) {
       cat(iter, name, '\n')
-      .fprintfun(x = x, nlines = nlines, ...)
+      .fprintfun(x = x, nlines = nlines)
       cat('\n')
     } else if (inherits(x, 'list')) {
       cat(iter, '\n')
@@ -43,9 +41,7 @@ fprint <- function(x, nlines = 10, ...) {
         iter = iter,
         x = x,
         name = names,
-        nlines = nlines,
-        ...
-      )
+        nlines = nlines)
     } else {
       warning('non-xts or list object at ', iter, ':')
       cat(iter)
@@ -58,15 +54,15 @@ fprint <- function(x, nlines = 10, ...) {
     if (length(x) == 0) {
       print(x)
     } else {
-      listcrawler(x = x, nlines = nlines, ...)
+      listcrawler(x = x, nlines = nlines)
     }
   } else {
-    listcrawler(x = x, nlines = nlines, ...)
+    listcrawler(x = x, nlines = nlines)
   }
   return(invisible())
 }
 
-.fprintfun <- function(x, nlines = 10, ...) {
+.fprintfun <- function(x, nlines = 10) {
   if (inherits(x, 'xts')) {
     cat(paste('Attributes:', sep = ''))
     if (!is.null(xts::xtsAttributes(x))) {
@@ -84,7 +80,7 @@ fprint <- function(x, nlines = 10, ...) {
             warning('minimum for nlines is 4')
             nlines <- 4
           }
-          print(utils::head(x, nlines / 2), ...)
+          print(utils::head(x, nlines / 2))
           options(warn = -1)
           cat('...')
           tail <- tail(x, floor(nlines / 2))
@@ -94,10 +90,10 @@ fprint <- function(x, nlines = 10, ...) {
               pattern = '.?',
               replacement = ' '
             )
-          print(tail, ...)
+          print(tail)
           options(warn = 0)
         } else {
-          print(x, ...)
+          print(x)
         }
         return(invisible())
       } else {
