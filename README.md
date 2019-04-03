@@ -206,7 +206,7 @@ For more information on the calculation procedure for Standardized Index values,
 
 For more information on the package's functions, see: [function help](docs/standaRdized.pdf).
 
-<!---For more use cases for working with other types of data such as the precipitation-evaporation balance (SPEI) or streamflow (SSI), handling NA values, different distributions and fitting methods, and optimizing calculation, see: Applications.--->
+<!---For more use cases for working with other types of data such as the precipitation-evaporation balance (SPEI) or streamflow (SSI), handling NA values, different distributions and fitting methods, forecasting and optimizing calculation, see: Applications.--->
 
 ## References
 
