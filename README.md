@@ -4,9 +4,9 @@ standaRdized is an R package for the calculation of Standardized Index values (S
 
 This package provides functions to calculate Standardized Index values on a daily basis in a generalized way: it allows the use of several distributions, aggregation periods, reference periods, and aggregation functions. This allows the calculation of Standardized Index values for a wide range of environmental data (e.g. groundwater levels, temperature,…).
 
-Further details:\
-* Standardized Index calculation\
-* [function help](https://github.com/WillemMaetens/standaRdized/tree/master/docs/standaRdized.pdf)\
+Further details:
+* Standardized Index calculation
+* [function help](https://github.com/WillemMaetens/standaRdized/tree/master/docs/standaRdized.pdf)
 <!---* applications--->
 
 ## Installation
