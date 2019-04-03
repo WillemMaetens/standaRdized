@@ -63,7 +63,7 @@ fprint(Ukkel_RR)
 #> 2019-02-28    11
 ```
 
-Calculating Standardized Indexes on a daily basis requires that monthly total precipiation as the basis for SPI calculation as in the original definition is replaced by the total rainfall over a specific number of days (the aggregation period). Although it is possible to do this for any number of days, the traditional definition of SPI-1 (based on total precipitation for 1 month), SPI-3 (based on total precipitation for 3 months) is approximated by using a fixed period of 30 days for a month. Hence, SPI-1 represents total precipitation over 30 days, SPI-3 total precipitation over 90 days, etc.
+Calculating Standardized Indexes on a daily basis requires that monthly total precipiation as the basis for SPI calculation as in the original definition is replaced by the total rainfall over a specific number of days (the aggregation period). Although it is possible to do this for any number of days, the traditional definition of SPI-1 (based on total precipitation for 1 month) and SPI-3 (based on total precipitation for 3 months) is approximated by using a fixed period of 30 days for a month. Hence, SPI-1 represents total precipitation over 30 days, SPI-3 total precipitation over 90 days, etc.
 
 Standardized Index values are calculated by the function `standardized.index()`. Minimum required arguments for this function are `data`: an `xts` object with the input time series (e.g. `Ukkel_RR`), `agg.length`: the length of the aggregation period in days and `index.out`: the output dates for which to calculate the SPI:
 
