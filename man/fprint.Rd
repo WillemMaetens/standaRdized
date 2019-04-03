@@ -4,14 +4,12 @@
 \alias{fprint}
 \title{Formatted xts Printing}
 \usage{
-fprint(x, nlines = 10, ...)
+fprint(x, nlines = 10)
 }
 \arguments{
 \item{x}{an xts object to be printed}
 
 \item{nlines}{approximate number of object rows to print (divided over head and tail of object) with a minimum of 4, if negative, the entire object is printed}
-
-\item{\dots}{additional attributes to be added}
 }
 \description{
 Print the xts attributes, data head and data tail of xts objects or xts objects in lists in a formatted manner.
