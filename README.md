@@ -28,14 +28,37 @@ Load the package with:
 library(standaRdized)
 ```
 
-The package includes example daily rainfall data for the Ukkel station in Belgium (source: ECA&D). This data can be loaded with:
+The package includes example daily rainfall data for the Ukkel station in Belgium (source: [ECA&D](https://www.ecad.eu/)). This data can be loaded with:
 
 ```r
-load(Ukkel_RR)
+data("Ukkel_RR")
 ```
 
 The function fprint() can be used to print xts objects or lists of xts objects in a formatter manner. It prints the xtsAttributes where the metadata for time series are stored, and the head and tail of xts objects.
 
 ```r
 fprint(Ukkel_RR)
+#> Attributes:                            
+#> name      :  Ukkel          
+#> country   :  Belgium        
+#> element   :  RR             
+#> unit      :  mm             
+#> longitude :  4.36638889     
+#> latitude  :  50.8           
+#> elevation :  100            
+#> source    :  ECA&D (ecad.eu)
+#> 
+#> Data:
+#>            value
+#> 1880-01-01    NA
+#> 1880-01-02   0.4
+#> 1880-01-03   0.0
+#> 1880-01-04   0.0
+#> 1880-01-05   0.0
+#> ...                
+#> 2019-02-24     0
+#> 2019-02-25     0
+#> 2019-02-26     0
+#> 2019-02-27     0
+#> 2019-02-28    11
 ```
