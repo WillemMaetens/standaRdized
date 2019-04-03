@@ -169,7 +169,7 @@ fprint(SPI_1)
 #> 2018-06-30 -2.20
 ```
 
-Alternatively, in stead of a set reference period, a set number of years preceding the date for which the Standardized Index is calculated can be used by setting `ref.years = NA` and specifying `ref.length` as a set number of years (by default, this is `30`). This is the setting used by VMM to calculate the SPI values shown on [waterinfo.be](https://www.waterinfo.be/default.aspx?path=NL/Thema/Droogte_Actueel&KL=en).
+Alternatively, instead of a set reference period, a set number of years preceding the date for which the Standardized Index is calculated can be used by setting `ref.years = NA` and specifying `ref.length` as a set number of years (by default, this is `30`). This is the setting used by VMM to calculate the SPI values shown on [waterinfo.be](https://www.waterinfo.be/default.aspx?path=NL/Thema/Droogte_Actueel&KL=en).
 
 ```r
 SPI_1 <- standardized.index(data=Ukkel_RR,agg.length=30,index.out=dates,ref.years=NA,ref.length=30)
