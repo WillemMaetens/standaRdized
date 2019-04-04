@@ -210,4 +210,4 @@ For more information on the package's functions, see: [function help](docs/stand
 
 ## References
 
-\[1] McKee, T.B., Doesken, N.J. and Kleist, J., 1993, January. The relationship of drought frequency and duration to time scales. In Proceedings of the 8th Conference on Applied Climatology (Vol. 17, No. 22, pp. 179-183). Boston, MA: American Meteorological Society.
+\[1] McKee, T.B., Doesken, N.J. and Kleist, J., 1993. The relationship of drought frequency and duration to time scales. In Proceedings of the 8th Conference on Applied Climatology, American Meteorological Society. Vol. 17, No. 22, pp. 179-183
