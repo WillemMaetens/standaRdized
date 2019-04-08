@@ -68,12 +68,12 @@ Calculating Standardized Indexes on a daily basis requires that monthly total pr
 Standardized Index values are calculated by the function `standardized.index()`. Minimum required arguments for this function are `data`: an `xts` object with the input time series (e.g. `Ukkel_RR`), `agg.length`: the length of the aggregation period in days and `index.out`: the output dates for which to calculate the SPI:
 
 ```r
-dates <- seq(from=as.Date('2018-06-01'),to=as.Date('2018-06-30'),by=1)
+dates <- seq(from = as.Date('2018-06-01'), to = as.Date('2018-06-30'), by = 1)
 ```
 By default, `standardized.index` uses the `gamma` distribution and aggregates data using the `sum` function as these are traditional for the SPI. Hence, the SPI-1 (which has an `agg.length` of `30` days) for June 2018 is calculated as follows:
 
 ```r
-SPI_1 <- standardized.index(data=Ukkel_RR,agg.length=30,index.out=dates)
+SPI_1 <- standardized.index(data = Ukkel_RR, agg.length = 30, index.out = dates)
 fprint(SPI_1)
 #> Attributes:                          
 #> agg.length        :  30   
@@ -106,7 +106,7 @@ plot(SPI_1)
 To calculate the SPI-3 (which has an `agg.length` of `90` days), just modify the `agg.length` argument:
 
 ```r
-SPI_3 <- standardized.index(data=Ukkel_RR,agg.length=90,index.out=dates)
+SPI_3 <- standardized.index(data = Ukkel_RR, agg.length = 90, index.out = dates)
 fprint(SPI_3)
 #> Attributes:                          
 #> agg.length        :  90   
@@ -141,7 +141,7 @@ By default, `standardized.index` uses the entire `data` object as reference data
 Furthermore, the `ref.years` and `ref.length` arguments allow to set which period of data to use as reference period. By default (`ref.years = NULL`), the full dataset length of `ref.data` is used, but you can provide specific years to be used as reference period. For instance, the [European Drought Observatory](http://edo.jrc.ec.europa.eu) uses the years [1981-2010 as reference period](http://edo.jrc.ec.europa.eu/documents/factsheets/factsheet_spi_ado.pdf):
 
 ```r
-SPI_1 <- standardized.index(data=Ukkel_RR,agg.length=30,index.out=dates,ref.years=seq(1981,2010))
+SPI_1 <- standardized.index(data = Ukkel_RR, agg.length = 30, index.out = dates, ref.years = seq(1981, 2010))
 fprint(SPI_1)
 #> Attributes:                                                                                   
 #> agg.length        :  30                                                            
@@ -172,7 +172,7 @@ fprint(SPI_1)
 Alternatively, instead of a set reference period, a set number of years preceding the date for which the Standardized Index is calculated can be used by setting `ref.years = NA` and specifying `ref.length` as a set number of years (by default, this is `30`). This is the setting used by VMM to calculate the SPI values shown on [waterinfo.be](https://www.waterinfo.be/default.aspx?path=NL/Thema/Droogte_Actueel&KL=en).
 
 ```r
-SPI_1 <- standardized.index(data=Ukkel_RR,agg.length=30,index.out=dates,ref.years=NA,ref.length=30)
+SPI_1 <- standardized.index(data = Ukkel_RR, agg.length = 30, index.out = dates, ref.years = NA, ref.length = 30)
 fprint(SPI_1)
 #> Attributes:                          
 #> agg.length        :  30   
