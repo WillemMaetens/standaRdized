@@ -20,7 +20,7 @@ devtools::install_github("WillemMaetens/standaRdized")
 
 ## Getting started
 
-standaRdized uses [xts (eXtensible Time Series)](https://cran.r-project.org/web/packages/xts/index.html) as input and output objects. Some tutorials for constructing xts objects, data input, or working with the Standardized Index output can be found [here](https://www.datacamp.com/community/blog/r-xts-cheat-sheet?utm_source=adwords_ppc&utm_campaignid=898687156&utm_adgroupid=48947256715&utm_device=c&utm_keyword=&utm_matchtype=b&utm_network=g&utm_adpostion=1t1&utm_creative=332602034349&utm_targetid=dsa-473406570475&utm_loc_interest_ms=&utm_loc_physical_ms=9040077&gclid=EAIaIQobChMI29a18uCz4QIV2OFRCh1ZxwefEAAYASAAEgLsgfD_BwE) or [here](http://rstudio-pubs-static.s3.amazonaws.com/288218_117e183e74964557a5da4fc5902fc671.html).
+standaRdized uses [xts (eXtensible Time Series)](https://cran.r-project.org/web/packages/xts/index.html) as input and output objects. Some tutorials for working with xts objects can be found [here](https://www.datacamp.com/community/blog/r-xts-cheat-sheet?utm_source=adwords_ppc&utm_campaignid=898687156&utm_adgroupid=48947256715&utm_device=c&utm_keyword=&utm_matchtype=b&utm_network=g&utm_adpostion=1t1&utm_creative=332602034349&utm_targetid=dsa-473406570475&utm_loc_interest_ms=&utm_loc_physical_ms=9040077&gclid=EAIaIQobChMI29a18uCz4QIV2OFRCh1ZxwefEAAYASAAEgLsgfD_BwE) or [here](http://rstudio-pubs-static.s3.amazonaws.com/288218_117e183e74964557a5da4fc5902fc671.html).
 
 Load the package with:
 
@@ -63,7 +63,7 @@ fprint(Ukkel_RR)
 #> 2019-02-28    11
 ```
 
-Calculating Standardized Indexes on a daily basis requires that monthly total precipiation as the basis for SPI calculation as in the original definition is replaced by the total rainfall over a specific number of days (the aggregation period). Although it is possible to do this for any number of days, the traditional definition of SPI-1 (based on total precipitation for 1 month) and SPI-3 (based on total precipitation for 3 months) is approximated by using a fixed period of 30 days for a month. Hence, SPI-1 represents total precipitation over 30 days, SPI-3 total precipitation over 90 days, etc.
+Calculating Standardized Indexes on a daily basis requires that monthly total precipitation as in the original definition of the SPI is replaced by the total precipitation over a specific number of days (the aggregation period). Although it is possible to do this for any number of days, the traditional definition of SPI-1 (based on total precipitation for 1 month) and SPI-3 (based on total precipitation for 3 months) is approximated by using a fixed period of 30 days for a month. Hence, SPI-1 represents total precipitation over 30 days, SPI-3 total precipitation over 90 days, etc.
 
 Standardized Index values are calculated by the function `standardized.index()`. Minimum required arguments for this function are `data`: an `xts` object with the input time series (e.g. `Ukkel_RR`), `agg.length`: the length of the aggregation period in days and `index.out`: the output dates for which to calculate the SPI:
 
